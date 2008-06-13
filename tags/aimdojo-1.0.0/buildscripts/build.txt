@@ -1,0 +1,31 @@
+=====================
+How to build the code
+=====================
+These instructions are how to build the code for the AOL CDN release, but it
+should give you an idea on how to build it for your own project, if you do not
+want to use the files from the CDN directly.
+
+- Decide on a version number (something like 1.0.0).
+- Update the index.html to use that version number. Make sure to modify
+  the HTML source since there may be version references in the links.
+- Check in the update to the docs.
+- Update the keys in the test pages to be XXXX.
+- Do a tag of the code.
+- Fetch the tag.
+- Remove _tasks.txt
+- Create a ZIP file for source. Name it dojo-aim-version.zip.
+
+- Download Dojo 1.1.0 source, place it as sibling to the aim module dir.
+- cd dojo-release-1.1.0-src/util/buildscripts
+- Run this build command:
+  > ./build.sh profileFile=../../../aim/buildscripts/aim.profile.js version=1.1.0 releaseName=1.1.0 cssOptimize=comments.keepLines optimize=shrinksafe loader=xdomain xdDojoPath=http://o.aolcdn.com/dojo/1.1.0  action=release xdDojoScopeName=window[\(typeof\(djConfig\)\!\=\"undefined\"\&\&djConfig.scopeMap\&\&djConfig.scopeMap[0][1]\)\|\|\"dojo\"]
+
+- cd to the dojo-release-1.1.0-src/release/1.1.0 directory.
+- Copy the dojo-aim-version.zip to the aim directory.
+
+- Copy auth.html and SoundBridge.swf into the tests directory.
+- Get a new key for the tests directory, based on version path.
+- Modify test pages to use this new key.
+- Copy aim.wim with comments to wim.js.commented.js and make change index.html to link to it.
+
+- Upload the code to the server.

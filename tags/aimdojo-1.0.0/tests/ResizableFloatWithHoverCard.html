@@ -1,0 +1,313 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<!-- 
+/*
+Copyright (c) 2008 by AOL LLC
+All rights reserved.
+ 
+Redistribution and use in source and binary forms, with or without modification, are permitted
+provided that the following conditions are met:
+ 
+    * Redistributions of source code must retain the above copyright notice, this list of conditions
+      and the following disclaimer.
+    * Redistributions in binary form must reproduce the above copyright notice, this list of conditions
+      and the following disclaimer in the documentation and/or other materials provided with the distribution.
+    * Neither the name of AOL LLC nor the names of its contributors may be used to endorse or 
+      promote products derived from this software without specific prior written permission.
+ 
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR 
+IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND 
+FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR 
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL 
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, 
+DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER 
+IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF
+THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+ -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" type="text/css" href="http://o.aolcdn.com/dojo/1.1.0/dijit/themes/tundra/tundra.css"/>
+	<link rel="stylesheet" type="text/css" href="http://o.aolcdn.com/dojo/1.1.0/dojox/layout/resources/ResizeHandle.css"/>
+	<link rel="stylesheet" type="text/css" href="../themes/aimDefault/aimDefault.css"/>
+	<style type="text/css">
+		html, body {
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: 12px;
+			padding: 0 10px;
+		}
+		
+		#pageContent {
+			float: left;
+			width: 350px;
+		}
+
+		form {
+			display: block;
+			float: left;
+			width: 320px;
+		}
+
+		hr, #examples {
+			clear: both;		
+		}
+
+		#floatingDiv {
+			width: 230px;
+			padding:3px;
+			height: 300px;
+			border:1px solid #666666;
+			position: relative;
+			background: white;
+			position: absolute;
+			top: 10px;
+			right: 10px;
+			z-index: 5;
+		}
+
+		#resizePane {
+			width: 100%;
+			height: 15px;
+			background-color: #666666;
+		}
+
+		#dragTitle {
+			background-color: #666666;
+			color: white;
+			padding: 3px;
+			cursor: move;
+		}
+		
+		pre {
+			font-size: smaller;
+		}
+
+		.fieldPair {
+			margin: 10px;
+		}
+		
+		#hoverForm label {
+			font-weight: bold;
+		}
+
+		.notes {
+			font-size: smaller;
+		}
+
+		.exampleAction {
+			background-image: url("images/main.gif");
+			width: 24px;
+			background-position: -645px -61px;
+		}
+		
+		.exampleAction:hover {
+			background-position: -645px -77px;
+		}
+	</style>
+	<script type="text/javascript">
+		djConfig = {
+			//isDebug: true,
+			debugAtAllCosts: true,
+			parseOnLoad: true,
+			xdWaitSeconds: 5,
+			baseUrl: "../",
+			modulePaths: {
+				aim: "."
+			}
+		}
+	</script>
+	<script type="text/javascript" src="http://o.aolcdn.com/dojo/1.1.0/dojo/dojo.xd.js"></script>
+	<script type="text/javascript">
+		dojo.require("dojo.dnd.move");
+		dojo.require("dijit.layout.BorderContainer");
+		dojo.require("dijit.layout.ContentPane");
+		dojo.require("dojox.layout.ResizeHandle");
+		dojo.require("aim.ImPanel");
+
+    function getSelectedValue(/*Select DOMNode*/select) {
+        return select.options[select.selectedIndex].value;
+    }
+
+		function updateHoverCard(){
+			var form = dojo.byId("hoverForm");
+			var hoverCardManager = dijit.byId("myImPanel").buddyListWidget.hoverCardManager;
+			
+			//Convert orient into appropriate object.
+			var orientParts = form.hoverCardOrient.value.replace(/['"]/g, "").split(":");
+			var newOrient = {};
+			newOrient[orientParts[0]] = orientParts[1];
+			
+			//Convert padding into appropriate array.
+			var paddingParts = form.hoverCardPadding.value.replace(/['" ]/g, "").split(",");
+			var newPadding = [
+				parseInt(paddingParts[0], 10),
+				parseInt(paddingParts[1], 10)			
+			];
+
+			hoverCardManager.hoverCardOrient = newOrient;
+			hoverCardManager.hoverCardPointerSide = getSelectedValue(form.hoverCardPointerSide);
+			hoverCardManager.hoverCardPointer = getSelectedValue(form.hoverCardPointer);
+			hoverCardManager.hoverCardPadding = newPadding;
+		}
+
+		function onExampleActionClick(/*Event*/evt){
+			//summary: handles click action from action icon added dynamically to the HoverCard.
+			//This function is attached to the HoverCard widget instance, so "this" inside this function
+			//will be the HoverCard widget instance.
+			alert("This was an additional action added by this test page.\n\nTo see how it works, view source\nand look for 'onExampleActionClick' references.\n\nBuddy in the HoverCard is: " + this.aimId);
+		}
+
+		dojo.addOnLoad(function(){
+			//INSERT YOUR KEY HERE. This page will not work without your key.
+			//See http://developer.aim.com to get a key
+			aim.wim.apiKey = "XXXXXXXXX";
+			aim.wim.locale = "en-us";
+
+			//Find local path to use for config settings.
+			var localPath = location.href.split("#")[0].split("?")[0];
+			var index = localPath.indexOf("/tests");
+
+			//Set the authPageUrl and location of swf file for sounds. Both of
+			//these files needs to be on a local path, preferrably in the same directory
+			//as your HTML file. If you do not want to worry about sounds and the swf file,
+			//then set aim.sound.swf = null.
+			aim.wim.authPageUrl = localPath.substring(0, index) + "/tests/auth.html";
+			aim.sound.swf = localPath.substring(0, index) + "/tests/SoundBridge.swf";
+			
+			//Make the BorderContainer draggable.
+			new dojo.dnd.Moveable("floatingDiv", {handle: "dragTitle"});
+			
+			//Add another button to the hover card. Do this by getting all
+			//buddy list widgets on the page (should only be one) and use the hoverCardActions
+			//array property of the widget, and add a DIV that has a class of actionLink.
+			//You can add other CSS classes if you like. Be sure to attach your own
+			//onclick handler to the div.
+			dijit.registry.byClass("aim.BuddyList").forEach(function(item){
+				//Create the DIV and assign click action
+				var actionNode = dojo.doc.createElement("div");
+				actionNode.className = "actionLink exampleAction";
+
+				//Add the action click handler to the widget, so the "this"
+				//variable inside the click handler will be the widget.
+				item.onExampleActionClick = onExampleActionClick;
+
+				//Add the div and action function to the hoverCardActions array.
+				//The action function will be attached to the HoverCard, so the "this"
+				//value inside the action function will be the HoverCard widget instance.
+				//This is useful for getting properties of the HoverCard (like this.aimId, the
+				//aimId of the buddy being shown in the hover card).
+				item.hoverCardActions.push({ node: actionNode, action: onExampleActionClick});
+			});
+		});
+	</script>
+</head>
+<body class="tundra aimDefault">
+
+	<div id="floatingDiv" dojoType="dijit.layout.BorderContainer">
+			<div id="dragTitle" dojoType="dijit.layout.ContentPane" region="top">
+				My Buddy List
+			</div>
+			<div id="buddyListPane" dojoType="dijit.layout.ContentPane" region="center">
+				<div id="myImPanel"
+					dojoType="aim.ImPanel"
+					hoverCardOrient="'TL':'TR'"
+					hoverCardPointerSide="right"
+					hoverCardPointer="hidden"
+					hoverCardPadding="0, 0">
+				</div>
+			</div>
+			<div id="resizePane" dojoType="dijit.layout.ContentPane" region="bottom">
+				<div id="resizeHandle" dojoType="dojox.layout.ResizeHandle" targetId="floatingDiv"></div>
+			</div>
+	</div>
+
+	<div id="pageContent">
+		<h1>Floating Buddy List</h1>
+		<p><b>
+		This example shows how to use the AIM modules with other dijits to get a resizable, movable, floating buddy list. This page also shows how you can configure the HoverCard that shows up as you hover over buddy names.
+		</b></p>
+		
+		<p>The AIM modules are do not have the logic to auto-detect the best HoverCard placement. The following are attributes
+		you can use on the dojoType="aim.ImPanel" div, or you can change the values dynamically by accessing the HoverCardManager on the BuddyList widget. The default options in the form are the ones that are the default configuration.</p>
+		
+		<p>This page also configures an extra action to show in the HoverCard. It adds an "email" icon to the HoverCard. For details on how to add actions to the HoverCard, see the source of this page and look for <b>onExampleActionClick</b> references.</p>
+	</div>
+	<form id="hoverForm" onsubmit="return false">
+		<h2>HoverCard Modification Form</h2>
+		<div class="fieldPair">
+			<label for="hoverCardOrient">hoverCardOrient: </label>
+			<input type="text" id="hoverCardOrient" value="'TL':'TR'" />
+			<div class="notes">
+				hoverCardOrient informs the HoverCardManager on how to orient the HoverCard as it relates to the element that contains the buddy's name. The first string is what corner on the buddy name's element to use, the second string is what corner of the HoverCard should be aligned with the first corner. Valid values are TL, TR, BL, BR for each corner. T is for Top, B is for Bottom, L is for Left and R is for Right.
+			</div>
+		</div>
+
+		<div class="fieldPair">
+			<label for="hoverCardPointerSide">hoverCardPointerSide: </label>
+			<select id="hoverCardPointerSide">
+				<option value="right">right</option>
+				<option value="bottom">bottom</option>
+				<option value="left">left</option>
+				<option value="top">top</option>
+			</select>
+			<div class="notes">
+				hoverCardPointerSide indicate what side should have the triangular arrow that helps "point" to the
+				buddy name's element.
+			</div>
+		</div>
+
+		<div class="fieldPair">
+			<label for="hoverCardPointer">hoverCardPointer: </label>
+			<select id="hoverCardPointer">
+				<option value="visible">visible</option>
+				<option value="hidden">hidden</option>
+			</select>
+			<div class="notes">
+				hoverCardPointer indicates if the triangular arrow that helps "point" to the
+				buddy name's element should be shown or not.
+			</div>
+		</div>
+
+		<div class="fieldPair">
+			<label for="hoverCardPadding">hoverCardPadding: </label>
+			<input type="text" id="hoverCardPadding" value="14, -27" />
+			<div class="notes">
+				hoverCardPadding adjusts how the HoverCard is positioned relative to the corners specified by
+				hoverCardOrient. The default in the code is actually <b>aim.widget.pointerWidth + ", -27"</b>.
+				The first number is the x value and the second number is the y value. Values are in pixels.
+			</div>
+		</div>
+		
+		<div class="fieldPair">
+			<button onclick="updateHoverCard()">Update Hover Card</button><br />
+			After pressing this button, hover over one of the buddy names (after you sign in)
+			to see how the above values change hover card positioning.
+		</div>
+	</form>
+	
+	<hr />
+	<div id="examples">
+ 		<p>Example usage (note how in the JavaScript example, hoverCardOrient is an object and hoverCardPadding is an array):</p>
+<pre>
+&lt;!-- Markup example --&gt;
+&lt;div id="myImWidget"
+     dojoType="aim.ImPanel"
+     hoverCardOrient="'TL':'BL'"
+     hoverCardPointerSide="top"
+     hoverCardPointer="hidden"
+     hoverCardPadding="0, 0"&gt;
+&lt;/div&gt;
+
+//Modifying the values in JavaScript after widgets are instantiated.
+var hoverCardManager = dijit.byId("myImWidget").buddyListWidget.hoverCardManager;
+hoverCardManager.hoverCardOrient = { 'TL':'BL' };
+hoverCardManager.hoverCardPointerSide = "top";
+hoverCardManager.hoverCardPointer = "hidden";
+hoverCardManager.hoverCardPadding = [0, 0];
+</pre>	
+	</div>
+</body>
+</html>

@@ -1,0 +1,220 @@
+/*
+Copyright (c) 2008 by AOL LLC
+All rights reserved.
+ 
+Redistribution and use in source and binary forms, with or without modification, are permitted
+provided that the following conditions are met:
+ 
+    * Redistributions of source code must retain the above copyright notice, this list of conditions
+      and the following disclaimer.
+    * Redistributions in binary form must reproduce the above copyright notice, this list of conditions
+      and the following disclaimer in the documentation and/or other materials provided with the distribution.
+    * Neither the name of AOL LLC nor the names of its contributors may be used to endorse or 
+      promote products derived from this software without specific prior written permission.
+ 
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR 
+IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND 
+FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR 
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL 
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, 
+DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER 
+IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF
+THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
+.aimDefault .imWidget {
+	height: 100%;
+	width: 100%;
+}
+
+.aimDefault .imWidget .conversation {
+	height: 150px;
+	background-color: #fff;
+	overflow: auto;
+	margin-left: 7px;
+	padding-top: 5px;
+}
+
+.aimDefault .imWidget .imBlock {
+	padding-bottom: 3px;
+	display: block;
+}
+
+.aimDefault .imWidget .systemIm {
+	color: gray;
+	font-size: 11px;
+	display: block;
+	text-align: center;		
+}
+
+.aimDefault .imWidget .localMessage {
+	color: #000;
+	font-weight: bold;
+	display: block;
+	text-align: center;		
+}
+
+.aimDefault .imWidget .localMessage .aimLink {
+	font-weight: normal;
+}
+
+.aimDefault .imWidget .userImName {
+	font-weight: bold;
+	color: red;
+}
+
+.aimDefault .imWidget .buddyImName {
+	font-weight: bold;
+	color: blue;
+}
+
+.aimDefault .imWidget .imTimeStamp {
+	font-weight: normal;
+    font-size: 10px;
+}
+
+.aimDefault .imWidget .userIm div {
+	display: inline;
+}
+
+.aimDefault .imWidget .screenNameContainer {
+	padding: 5px;
+	white-space: nowrap;
+}
+.aimDefault .imWidget .aimInput {
+	border: 1px solid #95c2ec;
+	padding: 0;
+	margin: 0;	
+}
+
+.aimDefault .imWidget .inputContainer {
+	border: 1px solid #95c2ec;
+	margin: 0 6px;
+	padding: 0px;
+	overflow: hidden;
+}
+
+.dj_gecko .aimDefault .imWidget .inputContainer,
+.dj_gecko .aimDefault .imWidget .phonePane,
+.dj_gecko .aimDefault .imWidget .screenNameContainer {
+	overflow: auto; /* Fixes the missing-cursor bug in Firefox.  Don't want this to apply to IE6 because it adds scrollbars. */
+}
+
+.aimDefault .imWidget textarea.aimInput {
+	border: none;
+	margin: 0;
+	width: 100%;
+	height: 50px;
+	overflow: auto;
+}
+
+.aimDefault .imWidget .typing {
+	color: gray;
+	font-weight: normal;
+	text-align: center;
+    height: 14px;
+    font-size: 10px;
+}
+
+.aimDefault .imWidget .buttonPane {
+	margin-right: 20px;
+	margin-left: 6px;
+}
+
+.aimDefault .imWidget .sendButton {
+	margin: 4px auto 4px;
+	float: right;
+}
+
+.aimDefault .imWidget .saveButton {
+	font-size: 10px;
+	font-family: Verdana;
+	margin-left: 6px;
+	margin-bottom: 4px;
+	float: left;
+	height: 20px;
+}
+
+body.aimDefault .imWidget .saveButton .content {
+	height: 20px;
+	border: 1px solid #fff;
+	padding: 3px 6px 0;
+	margin-top: 2px;
+	overflow: hidden;
+}
+
+body.aimDefault .imWidget .saveButtonHover .content,
+body.aimDefault .imWidget .saveButton:hover .content {
+	border: 1px solid gray;
+}
+body.aimDefault .saveButton .arrow {
+	padding-left: 3px;
+	border-left: 1px solid #fff;
+}
+body.aimDefault .imWidget .saveButtonHover .arrow,
+body.aimDefault .imWidget .saveButton:hover .arrow {
+	border-left: 1px solid gray;
+}
+body.aimDefault .saveButton .aimArrow {
+	margin: 8px 0;
+}
+
+.aimDefault .imWidget .mailLink,
+.aimDefault .imWidget .imLink,
+.aimDefault .imWidget .mobileLink {
+	margin-top: 4px;
+}
+
+.aimDefault .imWidget .imLinkModeSelect {
+	background-position: -670px -77px;
+}
+.aimDefault .imWidget .mobileLinkModeSelect {
+	background-position: -693px -77px;
+}
+
+.aimDefault .imWidget .phonePane {
+	background-color: #c5e2ff;
+	height: 18px;
+	border: 1px solid #95c2ec;
+	border-bottom: none;
+	margin: 0 6px 0 6px;
+}
+
+.aimDefault .imWidget .phoneIcon {
+	position: absolute;
+	width: 7px;
+	height: 11px;
+	background: url("images/main.gif") -800px -61px;
+	left: 6px;
+	top: 3px;
+}
+
+.aimDefault .imWidget .phonePane .aimInput {
+	right: 0;
+	position: absolute;
+	left: 18px;
+	background-color: #c5e2ff;
+	border: none;
+}
+
+.aimDefault .imWidget .blockMsg {
+	background-color: #e0e0e0;
+	color: black;
+}
+
+.aimDefault .imWidget .blockMsgText {
+	height: 20px;
+	font-weight: bold;
+	padding-top: 8px;
+}
+
+.aimDefault .imWidget .blockMsgUser {
+	font-weight: bold;
+	font-size: 14px;
+	margin-bottom: 10px;
+}
+
+.aimDefault .imWidget .blockMsgLink {
+	font-size: 12px;
+}
+

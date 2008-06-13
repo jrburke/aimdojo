@@ -1,0 +1,261 @@
+/*
+Copyright (c) 2008 by AOL LLC
+All rights reserved.
+ 
+Redistribution and use in source and binary forms, with or without modification, are permitted
+provided that the following conditions are met:
+ 
+    * Redistributions of source code must retain the above copyright notice, this list of conditions
+      and the following disclaimer.
+    * Redistributions in binary form must reproduce the above copyright notice, this list of conditions
+      and the following disclaimer in the documentation and/or other materials provided with the distribution.
+    * Neither the name of AOL LLC nor the names of its contributors may be used to endorse or 
+      promote products derived from this software without specific prior written permission.
+ 
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR 
+IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND 
+FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR 
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL 
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, 
+DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER 
+IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF
+THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
+.aimDefault .buddyList {
+	overflow-y: auto;
+	overflow-x: hidden;
+	position: relative;
+}
+
+.dj_gecko .aimDefault .buddyList {
+	position: inherit;
+}
+
+.aimDefault .buddyList .groupTitle {
+	font-size: 12px;
+	font-weight: bold;
+	margin: 0 0 1px 0;
+	padding: 2px 0 2px 3px;
+	background-color: #ede1cf;
+	white-space: nowrap;
+}
+
+.aimDefault .buddyList .groupTitle a {
+	padding: 2px 0 2px 3px;
+	display: inline;
+}
+
+.aimDefault .buddyList .groupEdit {
+	display: inline;
+	text-align: right;	
+	right: 4px;
+	position: absolute;
+	color: #06c;
+	font-size: 11px;
+	font-weight: normal;
+	padding: 0;
+	background-color: #e5edfa;
+}
+
+.dj_gecko .aimDefault .buddyList .groupEdit {
+	right: 20px;
+}
+
+.aimDefault .buddyList .buddiesList {
+	margin-left: 4px;
+}
+
+.aimDefault .buddyList .buddy {
+	white-space: nowrap;
+	font-size: 12px;
+}
+.aimDefault .buddyList .buddy a {
+	padding: 2px 0px;
+}
+
+.aimDefault .buddyList h2.groupItemHover, 
+.aimDefault .buddyList .buddy a:hover {
+	background-color: #e5edfa;
+}
+
+.aimDefault .buddyList .buddy .icon {
+	height: 16px;
+	width: 16px;
+	border: none;
+	margin-right: 3px;
+	-ms-interpolation-mode: bicubic;
+}
+
+.aimDefault .buddyList .buddy-online {
+}
+
+.aimDefault .buddyList .buddy-idle {
+	font-style: italic;
+}
+.aimDefault .buddyList .buddy-idle .icon {
+	background-image: url("http://o.aolcdn.com/aim/img/idle.gif");
+}
+
+.aimDefault .buddyList .buddy-away {
+	color: gray;
+}
+.aimDefault .buddyList .buddy-away .icon {
+	background-image: url("http://o.aolcdn.com/aim/img/away.gif");	
+}
+
+.aimDefault .buddyList .buddy-mobile {
+	color: blue;
+}
+.aimDefault .buddyList .buddy-mobile .icon {
+	background-image: url("http://o.aolcdn.com/aim/img/mobile.gif");	
+}
+.aimDefault .buddyList .buddy-blocked .icon {
+	background-image: url("images/buddy-art-list-blocked.gif");	
+}
+.aimDefault .buddyList .buddy-blocked a {
+	color: #a0a0a0;
+}
+
+.aimDefault .buddyList .buddy-offline {
+	display: none;
+}
+
+.aimDefault .buddyList .offlineGroup .buddy {
+	display:none;
+}
+
+.aimDefault .buddyList .offlineGroup .buddy-offline {
+	display:block;
+	font-style:italic;
+}
+
+.aimDefault .buddyList .offlineGroup .buddy-offline a {
+	color: #6a6a6a;
+}
+
+.aimDefault .buddiesCollapsed {
+	display: none;
+}
+
+.aimDefault .buddyList .groupTwisty {
+	background: url("images/main.gif") -1066px -16px;
+	width: 9px;
+	height: 9px;
+	border: 0;
+}
+.aimDefault .buddyList .groupTwistyClosed {
+	background-position: -1050px -16px;
+}
+
+.aimDefault .buddyList ul {
+	list-style-type: none;
+	padding-left: 0;
+	margin: 0;
+}
+
+.aimDefault .buddyList li a {
+	display: block;
+	color: #000;
+	text-decoration: none;
+	-moz-outline-style: none;
+}
+
+
+.aimDefault .buddyListQuickFind .groupItem { display: none; }
+.aimDefault .buddyListQuickFind .groupItemMatched { display: block; }
+.aimDefault .buddyListQuickFind .buddy { display: none; }
+.aimDefault .buddyListQuickFind .buddyMatched { display: block; }
+.aimDefault .buddyListQuickFind .buddy-offline { display: none; }
+.aimDefault .buddyListQuickFind .offlineGroup .buddy { display: none; }
+.aimDefault .buddyListQuickFind .offlineGroup .buddyMatched { display: block; }
+.aimDefault .buddyListQuickFind .offlineGroup .buddy-online,
+.aimDefault .buddyListQuickFind .offlineGroup .buddy-away,
+.aimDefault .buddyListQuickFind .offlineGroup .buddy-idle,
+.aimDefault .buddyListQuickFind .offlineGroup .buddy-mobile { display: none; }
+/* Force matching groups to be expanded */
+.aimDefault .buddyListQuickFind .groupItemMatched .buddiesCollapsed { display: block; }
+.aimDefault .buddyListQuickFind .groupItemMatched .groupTwistyClosed { background-position: -1066px -16px; }
+
+.aimDefault .buddyList .noMatches {
+	margin-top: 25%;
+	text-align: center;
+}
+
+/*
+ *	Hover card
+ */
+
+.buddyListHoverCard {
+	background-color: #fff;
+	border: 1px solid #666260;
+	padding:5px;
+	min-width: 220px;
+	max-width: 400px;
+	_width: 220px;
+	position: relative;
+}
+
+.buddyListHoverCard .contentContainer {
+	padding: 5px 7px 5px 1px;		
+}
+
+.buddyListHoverCard .screenName {
+	font-weight: bold;
+	font-size: 14px;
+}
+
+.buddyListHoverCard .aimLink {
+	font-size: 11px;	
+}
+
+.buddyListHoverCard .blockedIndicator {
+	color: red;
+}
+
+.buddyListHoverCard .time {
+	font-size: 11px;
+	color: #6a6a6a;
+}
+
+.buddyListHoverCard .away {
+	width: 205px;
+	word-wrap: break-word;
+	overflow: hidden;
+}
+
+.buddyListHoverCard .delete {
+	margin: 0 4px;
+	text-align: right;
+	color: #06c;
+	position: relative;
+	height: 14px;
+	overflow: hidden;
+}
+
+.dj_ie7 .buddyListHoverCard .delete {
+	width: 212px;
+}
+
+.buddyListHoverCard .buddyInfoLink {
+	position: absolute;
+	left: 0px;
+}
+
+.buddyListHoverCard .blockDeleteLinks {
+	position: absolute;
+	right: 0px;
+	width: 71px;
+}
+
+.buddyListHoverCard .separator 
+{
+	margin-left: 4px;
+	margin-right: 6px;
+}
+
+.buddyListHoverCard .headRow 
+{
+	padding-left: 8px;
+	padding-top:  6px;	
+}
