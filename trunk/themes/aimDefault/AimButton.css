@@ -1,0 +1,249 @@
+/*
+Copyright (c) 2008 by AOL LLC
+All rights reserved.
+ 
+Redistribution and use in source and binary forms, with or without modification, are permitted
+provided that the following conditions are met:
+ 
+    * Redistributions of source code must retain the above copyright notice, this list of conditions
+      and the following disclaimer.
+    * Redistributions in binary form must reproduce the above copyright notice, this list of conditions
+      and the following disclaimer in the documentation and/or other materials provided with the distribution.
+    * Neither the name of AOL LLC nor the names of its contributors may be used to endorse or 
+      promote products derived from this software without specific prior written permission.
+ 
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR 
+IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND 
+FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR 
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL 
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, 
+DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER 
+IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF
+THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
+.aimDefault .aimButton {
+	font-family: arial;
+	font-size: 12px;
+	margin: 0;
+	position: relative;
+	-moz-outline: none !important;
+}
+.aimDefault .aimButton .content {
+	cursor: pointer;
+	padding: 4px 7px;
+	color: #000;
+	display: block;
+	position: absolute;
+	left: 0px;	
+	border: solid 1px #999;
+}
+.aimDefault .aimButton .contentDisabled {
+	height: 28px;
+	cursor: default;
+	color: #999;
+}
+.aimDefault .aimToolbarBare div.aimButton:hover .contentDisabled,
+.aimDefault div.aimButton:hover .contentDisabled,
+.aimDefault div.aimButtonHover .contentDisabled {
+	background: none;
+}
+.aimDefault .aimButton .label {
+	position: absolute;
+	left: 7px;
+}
+.aimDefault .aimButton .label_ns8moz {
+	position: static;
+}
+
+.aimDefault .aimButton .arrow {
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 12px;
+	height: 100%;
+}
+.aimDefault .aimButton .aimArrow {
+	margin: 12px 0 0 0;
+}
+.aimDefault .aimButton .splitArrow {
+	padding-left: 4px;
+}
+.aimDefault .aimButton .splitArrow:hover {
+	padding-left: 3px;
+	border-left: 1px solid #000;
+}
+
+
+/* Toolbar buttons */
+.aimDefault .aimToolbar .aimButton .content {
+	padding: 6px 9px 7px 7px;
+	background: url("images/backgrounds.gif") 0 -262px repeat-x;
+	border: none;
+}
+
+.dj_ie6 .aimDefault .aimToolbar .aimButton .content 
+{
+	padding-left: 11px;
+}
+
+.aimDefault .aimToolbar .aimButton .contentDisabled {
+	cursor: default;
+	color: #999;
+}
+.aimDefault .aimToolbar .aimButton.rightBorder .content {
+	border-right: solid 1px #b3b3b3;
+}
+.aimDefault .aimToolbar .aimButton .splitArrow:hover {
+	border-left: solid 1px #b3b3b3;
+}
+.aimDefault .aimToolbar div.aimButton:hover .content,
+.aimDefault .aimToolbar div.aimButtonHover .content,
+.aimDefault .aimToolbar .aimButton div.splitArrow:hover,
+.aimDefault .aimToolbar .aimButtonHighlight .content {
+	background: url("images/backgrounds.gif") 0 -290px repeat-x;
+}
+.aimDefault .aimToolbar div.aimButton:hover .contentDisabled,
+.aimDefault .aimToolbar div.aimButtonHover .contentDisabled {
+	background: none;
+}
+
+/* IE waffles on whether to honor the height:100% on the arrow element, so we
+   give it an extra bottom border to extend the height. 
+	-- changed to padding, seems to work better */
+.aimDefault .aimToolbar .aimButton .splitArrow,
+.aimDefault .aimToolbar .aimButton .splitArrow:hover,
+.aimDefault .aimToolbar .aimButton:hover .splitArrow,
+.aimDefault .aimToolbar .aimButtonHover .splitArrow {
+	padding-bottom: 12px;
+}
+
+
+/* Blue theme */
+.aimDefault .aimButtonBlue {
+	font-size: 10px;
+	font-family: Verdana;
+}
+
+.aimDefault .aimToolbarBare .aimButtonBlue .content,
+.aimDefault .aimButtonBlue .content {
+	background: url("images/backgrounds.gif") 0 0 repeat-x;
+	border: 1px solid #000;
+	color: #000;
+	padding: 3px 7px;
+	margin: 0 2px 0 2px;
+}
+
+.aimDefault .aimToolbarBare .aimButtonBlue .contentDisabled,
+.aimDefault .aimButtonBlue .contentDisabled {
+	color: #999;
+	background-position: 0 -85px;
+}
+
+.aimDefault .aimToolbarBare div.aimButtonBlue:hover .content,
+.aimDefault .aimToolbarBare div.aimButtonHoverBlue .content,
+.aimDefault div.aimButtonBlue:hover .content,
+.aimDefault div.aimButtonHoverBlue .content,
+.aimDefault .aimButtonHighlightBlue .content {
+	background-position: 0 -19px;
+}
+.aimDefault div.aimButtonBlue:hover .contentDisabled,
+.aimDefault div.aimButtonHoverBlue .contentDisabled {
+	background: url("images/backgrounds.gif") 0 -85px repeat-x;
+	border: 1px solid #000;
+}
+.aimDefault .aimButtonBlue.rightBorder .content {
+	border-right: solid 1px #b3b3b3;
+	margin-right: 4px;
+}
+
+
+/* Yellow theme */
+.aimDefault .aimButtonYellow .content {
+	background: url("images/backgrounds.gif") 0 -145px repeat-x;
+	border: 1px solid #000;
+	color: #000;
+	padding: 3px 7px;
+}
+
+.aimDefault div.aimButtonYellow:hover .content,
+.aimDefault div.aimButtonHoverYellow .content {
+	background-position: 0 -169px;
+}
+
+
+
+/* Hat buttons */
+.aimDefault .aimButtonHat 
+{
+	margin-right: 10px;
+	font: normal 10px verdana;
+}
+.aimDefault .aimButtonHat .content {
+	background: url("images/backgrounds.gif") 0 -364px repeat-x;
+	border: 1px solid #000;
+	color: #000;
+	padding: 3px 7px;
+}
+.aimDefault div.aimButtonHat:hover .content,
+.aimDefault div.aimButtonHoverHat .content {
+	background-position: 0 -383px;
+	border: 1px solid #000;
+}
+.aimDefault .aimButtonHat .aimArrow {
+	background-position: -1037px -20px;
+	width: 5px;
+	height: 3px;
+}
+.aimDefault .aimButtonHat .splitArrow:hover {
+	background-position: 0 -402px;
+}
+
+
+/* Send Confirmation buttons */
+.aimDefault .aimButtonSendConfirmation {
+	font: 12px arial;
+	margin-right: 10px;
+}
+.aimDefault .aimToolbarBare .aimButtonSendConfirmation .content {
+	background: url("images/backgrounds.gif") 0 -318px repeat-x;
+	border: 1px solid #000;
+	color: #000;
+	padding: 3px 7px;
+}
+.aimDefault .aimToolbar div.aimButtonSendConfirmation:hover .content,
+.aimDefault .aimToolbar div.aimButtonHoverSendConfirmation .content {
+	background-position: 0 -341px;
+	border: 1px solid #000;
+}
+
+/* Link style buttons - Calendar dialogs will use it*/
+.aimDefault .aimButtonLink 
+{
+	font-family: Arial, Helvetica, Sans-Serif;
+	font-size: 11px;
+	font-weight: normal;
+	margin: 0 1px;
+}
+.aimDefault .aimButtonLink .content {
+	border: none;
+	color: #06c;
+	padding: 2px 9px;
+}
+.aimDefault .aimButtonLink.rightBorder .content {
+	border-right: solid 1px #b3b3b3;
+	margin-right: 4px;
+}
+
+.aimDefault div.aimButtonLink:hover .content,
+.aimDefault div.aimButtonHoverLink .content {
+	background-color: #fff;
+	text-decoration: underline;
+}
+
+.aimDefault div.aimButtonLink:hover .contentDisabled,
+.aimDefault div.aimButtonHoverLink .contentDisabled {
+	cursor: default;
+	color: #999;
+}
+

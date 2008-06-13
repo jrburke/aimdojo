@@ -1,0 +1,142 @@
+/*
+Copyright (c) 2008 by AOL LLC
+All rights reserved.
+ 
+Redistribution and use in source and binary forms, with or without modification, are permitted
+provided that the following conditions are met:
+ 
+    * Redistributions of source code must retain the above copyright notice, this list of conditions
+      and the following disclaimer.
+    * Redistributions in binary form must reproduce the above copyright notice, this list of conditions
+      and the following disclaimer in the documentation and/or other materials provided with the distribution.
+    * Neither the name of AOL LLC nor the names of its contributors may be used to endorse or 
+      promote products derived from this software without specific prior written permission.
+ 
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR 
+IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND 
+FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR 
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL 
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, 
+DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER 
+IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF
+THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
+.aimDefault .imUser {
+	border: 1px solid #aad31f;
+	background-color: #e8f6b8;
+	padding: 5px;
+	margin: 6px;
+	-moz-border-radius: 5px;
+	height: 32px;
+	position: relative;
+}
+
+.aimDefault .imUser .icon {
+	width: 30px;
+	height: 30px;
+	border: 1px solid #000;
+	cursor: pointer;
+	-ms-interpolation-mode: bicubic;
+}
+
+.aimDefault .imUser .name {
+	position: absolute;
+	top: 4px;
+	left: 41px;
+	right: 4px;
+	display: block;
+	font-size: 13px;
+	font-weight: bold;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+.aimDefault .imUser .presence {
+	display:block;
+	position: absolute;
+	top: 22px;
+	left: 42px;
+	right: 4px;
+	font-size: 11px;
+	cursor: pointer;
+	border: 1px solid #aad31f;
+	background-color: #c3e15d;
+	-moz-border-radius: 2px;
+	color: #0064cc;
+	padding-left: 1px;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.aimDefault .imUser .presenceText {
+	display: block;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	width: auto;
+	margin-right: 14px;
+}
+
+.aimDefault .imUser .customMessage {
+	position: absolute;
+	top: 20px;
+	left: 40px;
+	right: 4px;
+	font-size: 10px;
+}
+
+.aimDefault .imUser .arrow {
+	background-image: url("images/main.gif");
+	background-repeat: no-repeat;
+	background-position: -1038px -2px;
+	position: absolute;
+	top: 4px;
+	right: 2px;
+	width: 9px;
+	height: 5px;
+	border: 0;
+}
+
+.aimDefault .imUser-state-away {
+	border-color: #c8c8c8;
+	background-color: #fff8ca;
+}
+
+.aimDefault .imUser-state-away .presence {
+	border-color: #c8c8c8;
+	background-color: #fcf46f;
+}
+
+.aimDefault .imUser-state-invisible {
+	border-color: #c8c8c8;
+	background-color: #fff;
+}
+
+.aimDefault .imUser-state-invisible .presence {
+	background-color: #fff;
+	border-color: #c8c8c8;
+}
+
+.aimDefault .imUserPresenceMenu {
+	width: 168px;
+}
+
+body.aimDefault .imUserPresenceMenu .aimMenuItem .label {
+	padding: 2px 20px 2px 5px;
+}
+
+body.aimDefault .imUserPresenceMenu .imUserOffCol {
+	background-image: none;
+	width: 12px;
+	height: 13px;
+	margin-left: 2px;
+}	
+
+body.aimDefault .imUserPresenceMenu .imUserOnCol {
+	background-image: url("images/main.gif");	
+	background-position: -1140px -13px;
+	width: 12px;
+	height: 13px;
+	margin-left: 2px;
+}	

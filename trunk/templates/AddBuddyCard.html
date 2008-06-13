@@ -1,0 +1,9 @@
+<div class="addBuddyCard" dojoAttachEvent="onkeypress: onKeyPress" style="display: none;">
+	<img src="${spacer}" class="aimSmallCoolCloseButton" dojoAttachEvent="onclick: onClickCloseButton">
+	<div dojoAttachPoint="inputDiv">
+		<input class="aimInput" maxlength="128" dojoAttachPoint="screenNameTextbox">
+	</div>
+	<ul dojoType="aim.widget.AimDropDownButton" size="135" dojoAttachPoint="groupSelect" className="groupSelect" maxWidth="108"></ul>
+	<div dojoAttachPoint="addButton" className="addButton" dojoType="aim.widget.AimButton" dojoAttachEvent="onClick: onClickAddButton" vizType="Blue">${strings.Add}</div>
+	<br style="clear: both;">
+</div>

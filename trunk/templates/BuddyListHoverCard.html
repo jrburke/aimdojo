@@ -1,0 +1,29 @@
+<div class="buddyListHoverCard" style="display: none;">
+	<table>
+		<tr>
+			<td dojoAttachPoint="actionLinkNode" colspan="2">
+				<div class="actionLink mailLink" dojoAttachEvent="onclick: sendMail"></div>
+				<div class="actionLink imLink" dojoAttachEvent="onclick: sendIM"></div>
+				<div class="actionLink mobileLink" dojoAttachEvent="onclick: sendSMS" dojoAttachPoint="mobileLink"></div>
+			</td>
+		</tr>
+		<tr>
+			<td valign="top" class="contentContainer" style="width: 50px;">
+				<div dojoType="aim.widget.BuddyIcon" dojoAttachPoint="buddyIcon"></div>
+			</td>
+			<td valign="top" class="contentContainer">
+				<div class="screenName" dojoAttachPoint="screenNameNode"></div>
+				<div dojoAttachPoint="offlineIndicator">${strings.BuddyStatus_Label_Offline}</div>
+				<div class="time" dojoAttachPoint="onlineTimeContainer">${strings.BuddyInfo_Label_OnlineTime} <span dojoAttachPoint="onlineTimeNode"></span></div>
+				<div class="time" dojoAttachPoint="idleTimeContainer">${strings.BuddyInfo_Label_IdleTime} <span dojoAttachPoint="idleTimeNode"></span></div>
+			</td>
+		</tr>
+	</table>
+	<div dojoAttachPoint="awayMessageNode" class="contentContainer away"></div>
+	<div class="delete">
+		<span class="aimLink buddyInfoLink" dojoAttachPoint="buddyInfoLink" dojoAttachEvent="onclick: onClickBuddyInfo">${strings.BuddyInfo_Link_Text}</span>
+		<span class="blockDeleteLinks">
+			<span class="aimLink" dojoAttachPoint="blockLink" dojoAttachEvent="onclick: onClickBlock">${strings.KnockKnock_Label_Block}</span><span class="aimLink" dojoAttachPoint="unblockLink" dojoAttachEvent="onclick: onClickUnblock">${strings.KnockKnock_Label_Unblock}</span><span class="separator">|</span><span class="aimLink" dojoAttachPoint="deleteLink" dojoAttachEvent="onclick: onClickDelete">${strings.Delete}</span>
+			</span>
+	</div>
+</div>

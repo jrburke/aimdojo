@@ -1,0 +1,25 @@
+<div>
+	<div class="imWidget" dojoType="aim.StackContainer" dojoAttachPoint="stackWidget">
+		<div dojoType="aim.LayoutContainer" dojoAttachPoint="mainPane">
+			<div dojoType="aim.widget.Pane" class="screenNameContainer" dojoAttachPoint="screenNamePane" layoutAlign="top" style="display: none;">
+				<span dojoAttachPoint="screenNameLabel">${strings.To}:</span>
+				<input dojoType="aim.widget.DefaultTextbox" defaultValue="${strings.ScreenName}" dojoAttachPoint="screenNameTextbox" dojoAttachEvent="onBlur: onBlurScreenName" tabindex="200">
+			</div>
+			<div dojoType="aim.widget.Pane" layoutAlign="bottom" class="buttonPane" dojoAttachPoint="nodePane">
+				<div class="mailLink" dojoAttachPoint="mailLink" dojoAttachEvent="onclick: sendMail"></div>
+				<div class="imLink" dojoAttachPoint="imLink" dojoAttachEvent="onclick: setIMmode"></div>
+				<div class="mobileLink" dojoAttachPoint="phoneLink" dojoAttachEvent="onclick: setPhonemode"></div>
+				<div dojoType="aim.widget.AimButton" dojoAttachPoint="sendButton" className="sendButton" vizType="Blue" dojoAttachEvent="onClick: onClickSendButton" tabindex="202">${strings.Button_Label_Send}</div>
+			</div>
+			<div dojoType="aim.widget.Pane" layoutAlign="bottom" class="inputContainer">
+				<textarea dojoAttachPoint="messageInput" class="aimInput" dojoAttachEvent="onkeyup: onKeyUp, onkeypress: onKeyPress, onblur: onBlurTextarea" tabindex="201"></textarea>
+			</div>
+			<div dojoattachpoint="phonePane" dojoType="aim.widget.Pane" layoutAlign="bottom" class="phonePane" style="display: none;">
+				<div class="phoneIcon"></div>
+				<input dojoAttachPoint="phoneInput" class="aimInput" dojoAttachEvent="onkeypress: onPhoneKeyPress, onblur: onBlurTextarea" tabindex="200">
+			</div>
+			<div dojoType="aim.widget.Pane" class="typing" dojoAttachPoint="typingIndicator" layoutAlign="bottom"></div>
+			<div dojoType="aim.widget.Pane" dojoAttachPoint="conversationPane" layoutAlign="client" class="conversation"></div>
+		</div>
+	</div>
+</div>
