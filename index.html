@@ -1,0 +1,882 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<!-- 
+/*
+Copyright (c) 2008 by AOL LLC
+All rights reserved.
+ 
+Redistribution and use in source and binary forms, with or without modification, are permitted
+provided that the following conditions are met:
+ 
+    * Redistributions of source code must retain the above copyright notice, this list of conditions
+      and the following disclaimer.
+    * Redistributions in binary form must reproduce the above copyright notice, this list of conditions
+      and the following disclaimer in the documentation and/or other materials provided with the distribution.
+    * Neither the name of AOL LLC nor the names of its contributors may be used to endorse or 
+      promote products derived from this software without specific prior written permission.
+ 
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR 
+IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND 
+FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR 
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL 
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, 
+DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER 
+IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF
+THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
+
+ -->
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+
+
+
+
+
+
+
+
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <title>Dojo modules for Web AIM</title>
+  <link rel="stylesheet" type="text/css" href="http://o.aolcdn.com/dojo/1.1.0/dijit/themes/tundra/tundra.css" />
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <link rel="stylesheet" type="text/css" href="http://o.aolcdn.com/dojo/1.1.0/dijit/tests/css/dijitTests.css" />
+</head>
+
+
+<body style="font-family: Arial,Helvetica,sans-serif; color: rgb(0, 0, 0);" class="tundra" link="#0000ee" alink="#ee0000" vlink="#551a8b">
+
+
+
+
+
+
+
+
+
+<h1><a href="http://code.google.com/p/aimdojo/">Dojo Modules for Web AIM</a></h1>
+
+
+
+
+
+
+
+
+
+Version:&nbsp;1.0.0<br />
+
+
+
+
+
+
+
+
+<br />
+
+
+
+
+
+
+
+
+
+This collection of JavaScript modules have been written for use with
+Dojo 1.1. They implement UI widgets and an API wrapper for the <a href="http://dev.aol.com/aim/web">Web AIM API</a>.
+By using these modules, you can get a fully functioning AIM-based IM
+client running in a web page. You can view and manage buddy lists and
+send/receive IMs.<br />
+
+
+
+
+
+
+
+
+
+<br />
+
+
+
+
+
+
+
+
+
+These modules were adapted from the modules used by <a href="http://webmail.aol.com">AOL Webmail</a>. The
+modules are available under the <a href="http://www.opensource.org/licenses/bsd-license.php">BSD
+open source license</a>. The modules use SoundBridge.swf from the BSD-licensed <a href="http://sourceforge.net/projects/jssoundkit/">Javascript Sound Kit</a>, and the aim.date module includes some functions from the MIT-licensed <a href="http://www.javascripttoolbox.com/lib/date/source.php">Matt Kruse's Javascript Toolbox</a>.<br />
+
+
+
+
+<ul id="mozToc">
+
+
+
+
+<!--mozToc h2 1 h3 2 h4 3--><li><a href="#mozTocId678704">Getting the Code</a></li>
+
+
+
+
+  <li><a href="#mozTocId889954">Configuration</a>
+    
+    
+    
+    
+    <ul>
+
+
+
+
+      <li><a href="#mozTocId5506">1. Get a key</a></li>
+
+
+
+
+      <li><a href="#mozTocId335716">2. Copy auth.html to your server</a></li>
+
+
+
+
+      <li><a href="#mozTocId799231">3. Copy SoundBridge.swf to your server</a></li>
+
+
+
+
+      <li><a href="#mozTocId979899">4. Configure AIM modules</a></li>
+
+
+
+
+    
+    
+    
+    
+    </ul>
+
+
+
+
+  </li>
+
+
+
+
+  <li><a href="#mozTocId726939">Styling</a></li>
+
+
+
+
+  <li><a href="#mozTocId647781">Use the widgets</a></li>
+
+
+
+
+  <li><a href="#mozTocId349073">Examples</a></li>
+
+
+
+
+  <li><a href="#mozTocId672731">Using the Web AIM API wrapper</a></li>
+
+
+
+
+  <li><a href="#mozTocId475033">
+Notes</a></li>
+
+
+
+
+  <li><a href="#mozTocId872659">Getting Help</a></li>
+
+
+
+
+  <li><a href="#mozTocId885874">AOL Open APIs</a></li>
+
+
+
+
+</ul>
+
+
+
+
+
+
+
+
+
+<h2><a class="mozTocH2" name="mozTocId678704"></a>Getting the Code</h2>
+
+
+
+
+
+
+
+
+
+You can use these modules directly from the AOL CDN, or you can <a href="http://code.google.com/p/aimdojo/downloads/list">download the source code</a>
+and integrate it locally with your own code. <br />
+
+
+
+
+
+
+
+
+
+<br />
+
+
+
+
+
+
+
+
+
+To use from the AOL CDN, register the module path with Dojo. Examples:<br />
+
+
+
+
+
+
+
+
+
+<br />
+
+
+
+
+
+
+
+
+
+Using djConfig:<br />
+
+
+
+
+
+
+
+
+
+<pre style="background-color: rgb(204, 204, 204);">&lt;script type="text/javascript" djConfig="modulePaths: {'aim', 'http://o.aoldcn.com/dojo/aim/1.0.0'}" src="http://o.aoldcn.com/dojo/1.1/dojo/dojo.xd.js"&gt;&lt;/script&gt;</pre>
+
+
+
+
+
+
+
+
+
+Or, using dojo.registerModulePath():<br />
+
+
+
+
+
+
+
+
+
+<pre style="background-color: rgb(204, 204, 204);">&lt;script type="text/javascript" src="http://o.aoldcn.com/dojo/1.1.0/dojo/dojo.xd.js"&gt;&lt;/script&gt;<br />&lt;script type="text/javascript"&gt;<br />&nbsp; &nbsp; dojo.registerModulePath("aim", "http://o.aoldcn.com/dojo/aim/1.0.0");<br />&lt;/script&gt;</pre>
+
+
+
+
+
+
+
+
+
+<h2><a class="mozTocH2" name="mozTocId889954"></a>Configuration</h2>
+
+
+
+
+
+
+
+
+
+Once you are able to load the code, you need to do the following
+configuration steps:<br />
+
+
+
+
+
+
+
+
+
+<h3><a class="mozTocH3" name="mozTocId5506"></a>1. Get a key</h3>
+
+
+
+
+
+
+
+
+
+The modules use the Web AIM API, and that API requires an API key. Go
+the <a href="http://developer.aim.com/manageKeys.jsp">Manage
+Keys page</a>
+to create a key for the API. You will need to log in using either an
+AIM name or an OpenID from certain OpenID providers. Create a Web AIM
+key.<br />
+
+
+
+
+
+
+
+
+
+<br />
+
+
+When you create a key, you have the option to use Referrer checking. If you do opt for Referrer checking, use the
+directory that will hold your HTML page (and the auth.html page
+mentioned below). Be sure to end the URL value in a slash ( / ). <br />
+
+
+<br />
+
+
+It is suggested you run the code <span style="font-weight: bold;">from a web server</span> and <span style="font-weight: bold;">not from a local disk (file:// URL)</span>.<br />
+
+
+
+
+
+
+
+
+
+<h3><a class="mozTocH3" name="mozTocId335716"></a>2. Copy auth.html to your server</h3>
+
+
+
+
+
+
+
+
+
+In order for the user to sign in to AIM, a window needs to be opened to
+the <a href="http://dev.aol.com/api/openauth">OpenAuth</a>
+authentication page (some browsers do not allow third party cookies in
+an iframe window, and the OpenAuth server sets some cookies for
+authentication). When that authentication is done, it
+redirects back to this auth.html page on your domain. So, save the <a href="resources/auth.html">auth.html</a> page and
+place it in the same directory as the HTML page that will be using AIM
+modules.<br />
+
+
+
+
+
+<h3><a class="mozTocH3" name="mozTocId799231"></a>3. Copy SoundBridge.swf to your server</h3>
+
+
+
+
+
+The modules can play
+sounds for things like buddies signing
+in/signing out, and as IMs are sent and received. However, in order for
+sound to work, a Flash file (.swf file) must be loaded from the same
+domain as your HTML page. Save <a href="SoundBridge.swf">SoundBridge.swf</a> somewhere on the same
+domain as the HTML pages using the AIM modules.<br />
+
+
+
+
+
+
+
+
+
+<h3><a class="mozTocH3" name="mozTocId979899"></a>4. Configure AIM modules</h3>
+
+
+
+
+
+
+
+
+
+You now need to tell the AIM modules your API key and the location of
+auth.html and SoundBridge.swf. You can do that by setting properties on aim.wim in a
+dojo.addOnLoad() callback:<br />
+
+
+
+
+
+
+
+
+
+<pre style="background-color: rgb(204, 204, 204);">dojo.addOnLoad(function(){<br /> //Set up your key. See http://developer.aim.com/manageKeys.jsp to get a key<br /> aim.wim.apiKey = "YOUR_KEY_GOES_HERE";<br /> <br /> //Optionally set the locale to use with the Web AIM API. Defaults to en-us.<br /> //Note that this locale setting is only for the Web AIM API and does not affect<br /> //locale used by the UI widgets. Those widgets use dojo.locale.<br /> aim.wim.locale = "en-us";<br /><br /> //Configure auth.html location<br /> aim.wim.authPageUrl = "http://your.domain.com/path/to/auth.html";<br /><br /> //Configure SoundBridge.swf location. Set this value to null if you<br /> //do not want to play sounds.<br /> aim.sound.swf = "http://your.domain.com/path/to/SoundBridge.swf";<br /><br />});<br /></pre>
+
+
+
+
+
+
+
+
+
+<h2><a class="mozTocH2" name="mozTocId726939"></a>Styling</h2>
+
+
+
+
+
+
+
+
+
+The styling of the UI widgets is accomplished via two CSS files:<br />
+
+
+
+
+
+
+
+
+
+<ol>
+
+
+
+
+
+
+
+
+  <li><a href="http://o.aolcdn.com/dojo/1.1.0/dijit/themes/dijit.css">dijit.css</a>:
+the basic dijit CSS file used by all dojo dijit widgets.</li>
+
+
+
+
+
+
+
+
+  <li><a href="themes/aimDefault/aimDefault.css">aimDefault.css</a>:
+The default UI style for the AIM widgets. You also need to set "<span style="font-weight: bold;">aimDefault</span>" as a
+class on the HTML BODY tag.</li>
+
+
+
+
+
+
+
+
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+As with normal Dijit widgets, you can change the styling by providing
+an alternative to aimDefault.css, and placing the appropriate class
+name on the body tag that matches the master class name you use in your
+CSS file.<br />
+
+
+<h2>Internationalization (i18n)/Localization (l10n) Support</h2>
+
+
+Right now, only the en-us locale bundle is supported. However, it
+uses Dojo's i18n support, so if you want to translate the en-us bundle
+to another language, it should plug in using the normal Dojo i18n
+approach. You can place localizations in the <a href="nls">nls</a> directory. See <a href="http://dojotoolkit.org/book/dojo-book-0-9/part-3-programmatic-dijit-and-dojo/i18n">Dojo's i18n support</a> for more information.
+
+
+
+<h2><a class="mozTocH2" name="mozTocId647781"></a>Use the widgets</h2>
+
+
+
+
+
+
+To create the set of AIM widgets that handle the buddy list and IMs, just <span style="font-weight: bold;">dojo.require("aim.ImPanel")</span>; and instantiate aim.ImPanel.<br />
+
+
+
+
+
+
+<br />
+
+
+
+
+
+
+In HTML markup:<br />
+
+
+
+
+
+
+<pre style="background-color: rgb(204, 204, 204);">&lt;div dojoType="aim.ImPanel"&gt;&lt;/div&gt;</pre>
+
+
+
+
+
+
+In JavaScript:<br />
+
+
+
+
+
+
+<pre style="background-color: rgb(204, 204, 204);">//containerNode is a reference to a DOM element that will contain the aim.ImPanel widget.<br />var myImPanel = new aim.ImPanel({}, containerNode);</pre>
+
+
+
+
+
+
+
+
+
+<h2><a class="mozTocH2" name="mozTocId349073"></a>Examples</h2>
+
+
+
+
+
+
+
+
+
+There are two example pages <span style="font-weight: bold;">(NOTE: you must modify these pages and <a href="#mozTocId5506">add your WIM Key</a> in order for them to work)</span>:<br />
+
+
+
+
+
+
+
+
+
+<ol>
+
+
+
+
+
+
+
+
+
+  <li><a href="tests/Simple.html">Simple.html</a>: Just shows the simplest usage of the modules,
+using aim.ImPanel with the default options.</li>
+
+
+
+
+
+
+
+
+
+  <li><a href="tests/ResizableFloatWithHoverCard.html">ResizableFloatWithHoverCard.html</a>: Shows how to use
+aim.ImPanel inside other dijit widgets that allow the buddy list to be
+dragged and resized. Also shows configuration options for the HoverCard
+(the info card that shows up as you hover over buddy names).</li>
+
+
+
+
+
+
+
+
+
+</ol>
+
+
+
+
+
+
+
+
+<h2><a class="mozTocH2" name="mozTocId672731"></a>Using the Web AIM API wrapper</h2>
+
+
+
+
+
+
+
+
+If you just want to use the Web AIM API without using the UI widgets, look at the <a href="wim.js">aim.wim</a>
+module. There are comments at the top of the file that describe its
+usage. You can also look at the source code for the UI widgets to see
+how they interact with the aim.wim module.<br />
+
+
+
+
+
+
+<br />
+
+
+
+
+
+
+If you set&nbsp;<span style="font-weight: bold;">djConfig.aimUseDebugListener</span>
+to true, then a debug listener is registered with aim.wim. It will
+print console messages each time an aim.wim listener callback is called.
+<h2><a class="mozTocH2" name="mozTocId475033"></a>
+Notes</h2>
+
+
+
+
+
+
+
+
+
+<ol>
+
+
+
+
+
+
+
+
+
+  <li>The modules do not support multiple AIM names on the same
+page. The aim.wim wrapper is only designed to handle the API calls for
+one user at a time.</li>
+
+
+
+
+
+
+
+
+
+  <li>aim.wim does not implement the complete Web AIM API. Most
+notably, it does not implement data IMs at this time. It only focuses on the buddy list, IMs and presence events. See the <a href="http://dev.aol.com/aim/web/serverapi_reference">complete API</a> for more information.</li>
+
+
+
+
+
+
+
+
+
+  <li>The modules were designed for the webmail use case (buddy
+list on the right side, taking up the full length of the viewport, and
+no page scrolling). You may run into issues using it in a
+different scenario.</li>
+
+
+
+
+
+
+  
+  <li>The code should work for IE 6 and 7, Firefox 2 and 3, and Safari 3.</li>
+
+
+
+
+
+
+
+
+
+</ol>
+
+
+
+
+<h2><a class="mozTocH2" name="mozTocId872659"></a>Getting Help</h2>
+
+
+
+
+You can ask questions in the <a href="http://groups.google.com/group/aimdojo">aimdojo Google Group</a>.<br />
+
+
+
+
+
+
+<h2><a class="mozTocH2" name="mozTocId885874"></a>AOL Open APIs</h2>
+
+
+
+
+
+
+
+
+
+These modules use some open APIs from AOL:<br />
+
+
+
+
+
+
+
+
+
+<ul>
+
+
+
+
+
+
+
+
+
+  <li><a href="http://dev.aol.com/api/openauth">OpenAuth</a>: The open authentication model for AIM screen
+names. It also supports OpenIDs from certain OpenID providers and ICQ
+logins. You can use this API to allow users to authenticate into your
+site. By using the API you do not need to worry about handling
+authentication and OpenID support.</li>
+
+
+
+
+
+
+
+
+
+  <li><a href="http://dev.aol.com/aim/web/serverapi_reference">Web AIM API</a>:
+The API that allows you to get a user's buddy list and do IMs. There
+are other things you can do, like get buddy feed information,
+expressions and some location information.</li>
+
+
+
+
+
+
+
+
+
+</ul>
+
+
+
+
+
+
+
+
+<br />
+
+
+
+
+
+
+
+
+
+</body>
+</html>
