@@ -1,0 +1,40 @@
+<div class="imGroup">
+	<div class="imGroupWindow" id="${id}_window" dojoType="aim.LayoutContainer" dojoAttachPoint="windowPane">
+		<div dojoType="aim.widget.Pane" dojoAttachPoint="titlePane" class="titleBar" layoutAlign="top">
+			<img class="logo" src="${spacer}">
+			<div class="title" dojoAttachPoint="windowTitleNode">
+                <table dojoAttachPoint="tableNode" dojoAttachEvent="onclick: onClickMenu">
+					<tr>
+						<td><div class="titleCell" dojoAttachPoint="titleCell"><span class="aimLink" dojoAttachPoint="containerNode"></span></div></td>
+						<td width="13"><img src="${spacer}" class="aimArrow"></td>
+						<td width="1"></td>
+					</tr>
+				</table>
+			</div>
+			<span class="aimSmallCoolCloseButton" dojoAttachEvent="onclick: onClickCloseButton"></span>
+			<span class="minimizeButton" dojoAttachEvent="onclick: onClickMinimizeButton"></span>
+		</div>
+		<div dojoType="aim.StackContainer" dojoAttachPoint="signinPageContainer" layoutAlign="client">
+			<div dojoType="aim.LayoutContainer" dojoAttachPoint="onlinePane">
+				<div dojoType="aim.StackController" dojoAttachPoint="pageController" containerId="${id}pageContainer" buttonWidget="aim.ImPageButton" class="nav" layoutAlign="left"></div>
+				<div dojoType="aim.StackContainer" dojoAttachPoint="pageContainer" id="${id}pageContainer" layoutAlign="client"></div>
+			</div>
+			<div class="signin" dojoType="aim.LayoutContainer" dojoAttachPoint="offlinePane">
+				<div dojoType="aim.widget.Pane" layoutAlign="top">
+					<div class="logo"></div>
+					<div dojoAttachPoint="promptNode" class="prompt"></div>
+				</div>
+				<div dojoType="aim.widget.AimToolbar" vizType="Bare" layoutAlign="top">
+					<div dojoType="aim.widget.AimButton" toolbarPosition="center" vizType="Blue" dojoAttachEvent="onClick: onClickSignIn">${strings.SignIn}</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="imGroupMinimized titleBar" style="display: none;" dojoAttachPoint="minimizedNode" dojoAttachEvent="onclick: onClickRestoreButton">
+		<img class="logo" src="${spacer}">
+		<span dojoAttachPoint="minimizedTitleNode" class="title"></span>
+		<span class="aimSmallCoolCloseButton" dojoAttachEvent="onclick: onClickCloseButton"></span>
+		<span class="restoreButton"></span>
+	</div>
+</div>
+

@@ -1,0 +1,189 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<!-- 
+/*
+Copyright (c) 2008 by AOL LLC
+All rights reserved.
+ 
+Redistribution and use in source and binary forms, with or without modification, are permitted
+provided that the following conditions are met:
+ 
+    * Redistributions of source code must retain the above copyright notice, this list of conditions
+      and the following disclaimer.
+    * Redistributions in binary form must reproduce the above copyright notice, this list of conditions
+      and the following disclaimer in the documentation and/or other materials provided with the distribution.
+    * Neither the name of AOL LLC nor the names of its contributors may be used to endorse or 
+      promote products derived from this software without specific prior written permission.
+ 
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR 
+IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND 
+FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR 
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL 
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, 
+DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER 
+IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF
+THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+ -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" type="text/css" href="http://o.aolcdn.com/dojo/1.1.0/dijit/themes/dijit.css"/>
+	<link rel="stylesheet" type="text/css" href="../themes/aimDefault/aimDefault.css"/>
+	<style type="text/css">
+		html, body {
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: 12px;
+		}
+
+		#master {
+			margin: 20px auto;
+			width: 800px;
+			position: relative;
+		}
+		
+		#pageContent {
+			float: left;
+			width: 578px;
+			padding: 0 10px 10px 10px;
+		}
+
+		#pageContent h1 {
+			margin-top: 0;		
+		}
+
+		#myImPanel {
+			position: relative;
+			width: 180px;
+			height: 500px;
+			border: 1px solid black;
+		}
+	</style>
+	<script type="text/javascript">
+		djConfig = {
+			//isDebug: true,
+			debugAtAllCosts: true,
+			parseOnLoad: true,
+			xdWaitSeconds: 5,
+			baseUrl: "../",
+			modulePaths: {
+				aim: "."
+			}
+		}
+	</script>
+	<script type="text/javascript" src="http://o.aolcdn.com/dojo/1.1.0/dojo/dojo.xd.js"></script>
+	<script type="text/javascript">
+		dojo.require("aim.ImPanel");
+
+		dojo.addOnLoad(function(){
+			//INSERT YOUR KEY HERE. This page will not work without your key.
+			//See http://developer.aim.com to get a key
+			aim.wim.apiKey = "XXXXXXXXX";
+			aim.wim.locale = "en-us";
+			
+			//Find local path to use for config settings.
+			var localPath = location.href.split("#")[0].split("?")[0];
+			var index = localPath.indexOf("/tests");
+
+			//Set the authPageUrl and location of swf file for sounds. Both of
+			//these files needs to be on a local path, preferrably in the same directory
+			//as your HTML file. If you do not want to worry about sounds and the swf file,
+			//then set aim.sound.swf = null.
+			aim.wim.authPageUrl = localPath.substring(0, index) + "/tests/auth.html";
+			aim.sound.swf = localPath.substring(0, index) + "/tests/SoundBridge.swf";
+		});
+	</script>
+</head>
+<body class="aimDefault">
+	<div id="master">
+		<div id="pageContent">
+			<h1>Simple Test</h1>
+			<p>
+				<b>This page demonstrates a simple AIM module usage, using all the defaults.</b>
+			</p>
+	
+			<p>Aliquam vitae enim. Duis scelerisque metus auctor est venenatis
+			imperdiet. Fusce dignissim porta augue. Nulla vestibulum. Integer lorem
+			nunc, ullamcorper a, commodo ac, malesuada sed, dolor. Aenean id mi in
+			massa bibendum suscipit. Integer eros. Nullam suscipit mauris. In
+			pellentesque. Mauris ipsum est, pharetra semper, pharetra in, viverra
+			quis, tellus. Etiam purus. Quisque egestas, tortor ac cursus lacinia,
+			felis leo adipiscing nisi, et rhoncus elit dolor eget eros. Fusce ut
+			quam. Suspendisse eleifend leo vitae ligula. Nulla facilisi. Nulla
+			rutrum, erat vitae lacinia dictum, pede purus imperdiet lacus, ut
+			semper velit ante id metus. Praesent massa dolor, porttitor sed,
+			pulvinar in, consequat ut, leo. Nullam nec est. Aenean id risus blandit
+			tortor pharetra congue. Suspendisse pulvinar.
+			</p>
+			<p>Vestibulum convallis eros ac justo. Proin dolor. Etiam aliquam. Nam
+			ornare elit vel augue. Suspendisse potenti. Etiam sed mauris eu neque
+			nonummy mollis. Vestibulum vel purus ac pede semper accumsan. Vivamus
+			lobortis, sem vitae nonummy lacinia, nisl est gravida magna, non cursus
+			est quam sed urna. Phasellus adipiscing justo in ipsum. Duis sagittis
+			dolor sit amet magna. Suspendisse suscipit, neque eu dictum auctor,
+			nisi augue tincidunt arcu, non lacinia magna purus nec magna. Praesent
+			pretium sollicitudin sapien. Suspendisse imperdiet. Class aptent taciti
+			sociosqu ad litora torquent per conubia nostra, per inceptos
+			hymenaeos.
+			</p>
+			<p>Mauris pharetra lorem sit amet sapien. Nulla libero metus, tristique
+			et, dignissim a, tempus et, metus. Ut libero. Vivamus tempus purus vel
+			ipsum. Quisque mauris urna, vestibulum commodo, rutrum vitae, ultrices
+			vitae, nisl. Class aptent taciti sociosqu ad litora torquent per
+			conubia nostra, per inceptos hymenaeos. Nulla id erat sit amet odio
+			luctus eleifend. Proin massa libero, ultricies non, tincidunt a,
+			vestibulum non, tellus. Nunc nunc purus, lobortis a, pulvinar at,
+			egestas a, mi. Cras adipiscing velit a mauris. Morbi felis. Etiam at
+			felis. Cras eget eros et justo mattis pulvinar. Nullam at justo id
+			risus porttitor dignissim. Vestibulum sed velit vel metus tincidunt
+			tempus. Nunc euismod nisl id dolor tristique tincidunt. Nullam placerat
+			turpis sed odio. Curabitur in est id nibh tempus ultrices. Aliquam
+			consectetuer dapibus eros. Aliquam nisl.
+			</p>
+			<p>Aliquam vitae enim. Duis scelerisque metus auctor est venenatis
+			imperdiet. Fusce dignissim porta augue. Nulla vestibulum. Integer lorem
+			nunc, ullamcorper a, commodo ac, malesuada sed, dolor. Aenean id mi in
+			massa bibendum suscipit. Integer eros. Nullam suscipit mauris. In
+			pellentesque. Mauris ipsum est, pharetra semper, pharetra in, viverra
+			quis, tellus. Etiam purus. Quisque egestas, tortor ac cursus lacinia,
+			felis leo adipiscing nisi, et rhoncus elit dolor eget eros. Fusce ut
+			quam. Suspendisse eleifend leo vitae ligula. Nulla facilisi. Nulla
+			rutrum, erat vitae lacinia dictum, pede purus imperdiet lacus, ut
+			semper velit ante id metus. Praesent massa dolor, porttitor sed,
+			pulvinar in, consequat ut, leo. Nullam nec est. Aenean id risus blandit
+			tortor pharetra congue. Suspendisse pulvinar.
+			</p>
+			<p>Vestibulum convallis eros ac justo. Proin dolor. Etiam aliquam. Nam
+			ornare elit vel augue. Suspendisse potenti. Etiam sed mauris eu neque
+			nonummy mollis. Vestibulum vel purus ac pede semper accumsan. Vivamus
+			lobortis, sem vitae nonummy lacinia, nisl est gravida magna, non cursus
+			est quam sed urna. Phasellus adipiscing justo in ipsum. Duis sagittis
+			dolor sit amet magna. Suspendisse suscipit, neque eu dictum auctor,
+			nisi augue tincidunt arcu, non lacinia magna purus nec magna. Praesent
+			pretium sollicitudin sapien. Suspendisse imperdiet. Class aptent taciti
+			sociosqu ad litora torquent per conubia nostra, per inceptos
+			hymenaeos.
+			</p>
+			<p>Mauris pharetra lorem sit amet sapien. Nulla libero metus, tristique
+			et, dignissim a, tempus et, metus. Ut libero. Vivamus tempus purus vel
+			ipsum. Quisque mauris urna, vestibulum commodo, rutrum vitae, ultrices
+			vitae, nisl. Class aptent taciti sociosqu ad litora torquent per
+			conubia nostra, per inceptos hymenaeos. Nulla id erat sit amet odio
+			luctus eleifend. Proin massa libero, ultricies non, tincidunt a,
+			vestibulum non, tellus. Nunc nunc purus, lobortis a, pulvinar at,
+			egestas a, mi. Cras adipiscing velit a mauris. Morbi felis. Etiam at
+			felis. Cras eget eros et justo mattis pulvinar. Nullam at justo id
+			risus porttitor dignissim. Vestibulum sed velit vel metus tincidunt
+			tempus. Nunc euismod nisl id dolor tristique tincidunt. Nullam placerat
+			turpis sed odio. Curabitur in est id nibh tempus ultrices. Aliquam
+			consectetuer dapibus eros. Aliquam nisl.
+			</p>
+	
+		</div>
+		<div id="myImPanel" dojoType="aim.ImPanel">
+		</div>
+	</div>
+</body>
+</html>

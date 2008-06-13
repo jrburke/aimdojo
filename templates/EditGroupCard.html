@@ -1,0 +1,12 @@
+<div class="editGroupCard" style="display: none;">
+	<img src="${spacer}" class="aimSmallCoolCloseButton" dojoAttachEvent="onclick: onClickCloseButton">
+	<div dojoAttachPoint="inputDiv"><input class="aimInput" maxlength="128" dojoAttachPoint="groupNameTextbox"></div>
+	<div class="buddyCount"><span dojoAttachPoint="buddyCount"></span></div>
+	<div class="delete">
+		<span class="aimLink" dojoAttachPoint="deleteLink" dojoAttachEvent="onclick: onClickDelete">${strings.Delete}</span>
+	</div>
+	<div class="buttonGroup">
+		<div dojoAttachPoint="cancelButton" dojoType="aim.widget.AimButton" dojoAttachEvent="onClick: onClickCancelButton" className="cancelButton" vizType="Blue">${strings.Cancel}</div>
+		<div dojoAttachPoint="saveButton" dojoType="aim.widget.AimButton" dojoAttachEvent="onClick: onClickSaveButton" className="saveGroupButton" vizType="Blue">${strings.Save}</div>
+	</div>
+</div>

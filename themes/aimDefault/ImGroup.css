@@ -1,0 +1,232 @@
+/*
+Copyright (c) 2008 by AOL LLC
+All rights reserved.
+ 
+Redistribution and use in source and binary forms, with or without modification, are permitted
+provided that the following conditions are met:
+ 
+    * Redistributions of source code must retain the above copyright notice, this list of conditions
+      and the following disclaimer.
+    * Redistributions in binary form must reproduce the above copyright notice, this list of conditions
+      and the following disclaimer in the documentation and/or other materials provided with the distribution.
+    * Neither the name of AOL LLC nor the names of its contributors may be used to endorse or 
+      promote products derived from this software without specific prior written permission.
+ 
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR 
+IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND 
+FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR 
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL 
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, 
+DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER 
+IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF
+THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
+.aimDefault .imGroupWindow {
+	position: absolute;
+	z-index: 10;
+	border: 1px solid #5A5653;
+	height: 255px;
+	width: 250px;
+	background-color: #fff;
+}
+
+.aimDefault .imGroupMinimized {
+	position: absolute;
+	z-index: 1000;
+	bottom: 0;
+	right: 0;
+	width: 200px;
+	border: 1px solid #aaa;
+}
+
+.aimDefault .imGroup .titleBar {
+	height: 22px;
+	background: url("images/backgrounds.gif") 0 -264px;
+	background-color: #EADEC8;
+	border-bottom: 1px solid #aaa;
+	cursor: default;
+}
+
+.aimDefault .imGroupMinimized .titleBar {
+	border-bottom: none;
+}
+
+.aimDefault .imGroup .titleBar .logo {
+    float: left;
+	background: url("images/main.gif") -1474px -87px;	
+	width: 22px;
+	height: 19px;
+	margin-left: 2px;
+}
+
+.aimDefault .imGroup .titleBar .title {
+	margin: 2px 4px;
+	position: absolute;
+	left: 24px;
+	overflow: hidden;
+	white-space: nowrap;
+	z-index: 1;
+}
+
+.aimDefault .imGroup .titleBar table {
+	cursor: pointer;
+}
+
+.aimDefault .imGroup .titleBar .title .aimLink {
+	font-weight: bold;
+	color: black;
+	overflow: hidden;
+	display: block;
+	white-space: nowrap;
+}
+
+/*Hide the IM link on the IM area since the
+  SMS and mail icons are already hidden, so this
+  icon is not helpful. */
+.aimDefault .imGroup .imLink {
+	display: none !important;
+}
+
+.aimDefault .imGroup .titleBar .title .titleCell {
+	overflow: hidden;
+}
+
+.aimDefault .imGroup .titleBar .title .newCounter {
+	color: #248F03;
+}
+.aimDefault .imGroup .titleBar .aimSmallCoolCloseButton {
+	position: absolute;
+	top: 4px;
+	right: 4px;
+	z-index: 2;
+}
+.aimDefault .imGroup .titleBar .minimizeButton {
+	position: absolute;
+	right: 22px;
+	top: 4px;
+	height: 14px;
+	width: 14px;
+	cursor: pointer;
+	background: url("images/main.gif") -1633px 0;
+	z-index: 2;
+}
+.aimDefault .imGroup .titleBar .minimizeButton:hover {
+	background-position: -1649px 0;
+}
+.aimDefault .imGroup .titleBar .restoreButton {
+	position: absolute;
+	right: 22px;
+	top: 4px;
+	height: 14px;
+	width: 14px;
+	cursor: pointer;
+	background: url("images/main.gif") -1665px 0;
+}
+.aimDefault .imGroup .titleBar .restoreButton:hover {
+	background-position: -1681px 0;
+}
+
+body.aimDefault .imGroup .minimizedNewMessages {
+	background-position: 0 -443px;
+}
+body.aimDefault .imGroup .minimizedNewMessages .logo {
+	background-position: -1505px -87px;	
+}
+
+.aimDefault .imGroup .nav {
+	width: 105px;
+	background-color: #F4ECE1;
+	border-right: 1px solid #aaa;
+	overflow: auto;
+}
+
+.aimDefault .imGroup .nav .item {
+	position: relative;
+	display: block;
+	width: 99px;
+	padding: 3px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	cursor: pointer;
+	white-space: nowrap;
+}
+.aimDefault .imGroup .nav .item .newMessageIcon {
+	height: 13px;
+	width: 13px;
+	margin-bottom: -2px;
+}
+.aimDefault .imGroup .nav .itemWithNewMessage .newMessageIcon {
+	background: url("images/main.gif") -1699px 0;
+}
+.aimDefault .imGroup .nav .itemOffline {
+	color: #A4A4A4;
+}
+.aimDefault .imGroup .nav .item:hover {
+	background-color: #fff;
+}
+.aimDefault .imGroup .nav .item .aimSmallCoolCloseButton {
+	position: absolute;
+	top: 3px;
+	right: 1px;
+}
+.aimDefault .imGroup .nav .current {
+	background-color: #fff;
+	font-weight: bold;
+}
+
+.aimDefault .imGroup .dojoxResizeHandle {
+	float: right;
+	position: absolute;
+	z-index: 20;
+	line-height: 0px;
+	background: url("images/main.gif") -1734px -3px;
+	top: auto !important;	/* Override coords set by the parent LayoutContainer */
+	left: auto !important;
+	bottom: 0 !important;
+	right: 0 !important;
+	height: 11px;
+	width: 11px;
+	cursor: nw-resize;
+}
+
+body.aimDefault .imActionMenu .imActionOffCol {
+	background-image: none;
+	width: 13px;
+	height: 13px;
+	margin-left: 2px;
+}	
+
+body.aimDefault .imActionMenu .imActionOnCol {
+	background-image: url("images/main.gif");	
+	background-position: -1137px -13px;
+	width: 13px;
+	height: 13px;
+	margin-left: 2px;
+}	
+
+.aimDefault .imGroup .signin {
+	padding: 40px 25px 0px;
+	height: 100%;
+}
+
+.aimDefault .imGroup .signin .logo {
+	float: right;
+	width: 55px;
+	height: 44px;
+	background: url("images/main.gif") -1412px -91px;
+	margin: 0px 20px 8px;
+	display: inline; /* Fix the IE double float margin bug */
+}
+
+.aimDefault .imGroup .signin .prompt {
+	clear: right;
+	font-weight: bold;
+	margin-bottom: 15px;
+	text-align: center;
+}
+
+.aimDefault .imGroup .signin .prompt .sn {
+	color: #ff3333;
+}
+

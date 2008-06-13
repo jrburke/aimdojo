@@ -1,0 +1,131 @@
+/*
+Copyright (c) 2008 by AOL LLC
+All rights reserved.
+ 
+Redistribution and use in source and binary forms, with or without modification, are permitted
+provided that the following conditions are met:
+ 
+    * Redistributions of source code must retain the above copyright notice, this list of conditions
+      and the following disclaimer.
+    * Redistributions in binary form must reproduce the above copyright notice, this list of conditions
+      and the following disclaimer in the documentation and/or other materials provided with the distribution.
+    * Neither the name of AOL LLC nor the names of its contributors may be used to endorse or 
+      promote products derived from this software without specific prior written permission.
+ 
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR 
+IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND 
+FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR 
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL 
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, 
+DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER 
+IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF
+THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
+.aimDefault .aimMenu {
+	border: 1px solid #999;
+	background-color: #fff !important;
+	background-image: none !important;
+	padding: 3px 2px;
+	margin: 0;
+	overflow: auto;
+	overflow-x: hidden; /* avoid horizontal scrollbar on IE */
+}
+
+.aimDefault .aimMenuItem {
+	white-space: nowrap;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	cursor: pointer;
+	color: #000;
+}
+
+.aimDefault .aimMenuItem .label {
+	padding: 2px 25px 2px 5px;
+}
+
+.aimDefault .aimMenuItemHover,
+tr.aimMenuItem:hover {
+	background-color: #e4edfa;
+	color: #000;
+}
+
+.aimDefault .aimMenuItemDisabled {  /* Cancel out the hover effect */
+	background-color: #fff !important;
+	color: #999 !important;
+	cursor: default;
+}
+
+.aimDefault .aimMenuSeparator {
+	font-size: 1px;
+	margin: 0;
+	padding: 0;
+}
+.aimDefault .aimMenuSeparatorTop {
+	height: 50%;
+	border-bottom: 1px solid #999;
+	font-size: 1px;
+	margin: 2px;
+}
+.aimDefault .aimMenuSeparatorBottom {
+	height: 50%;
+	margin: 0px 2px;
+	font-size: 1px;
+}
+
+.aimDefault .aimMenuItem .ckoffCol
+{ 
+	background-image: url("images/main.gif");	
+	background-position: -1110px 2px;
+	width: 13px;
+	height: 13px;
+	margin-left: 2px;
+	display: block;
+}
+
+.aimDefault .aimMenuItem .ckonCol
+{
+	background-image: url("images/main.gif");	
+	background-position: -1125px 2px;
+	width: 13px;
+	height: 13px;
+	margin-left: 2px;
+	display: block;
+}
+
+.aimDefault .aimMenuItem .aimCalCB
+{
+	margin: 3px;
+	cursor: pointer;
+}
+
+.aimDefault .inputableItemLabel
+{
+	color: #000;
+	padding: 3px 5px 4px 5px;
+}
+
+.aimDefault .inputableItemLabel .inputContainer
+{
+	position: relative;
+	overflow: auto;  /* Fixes the Firefox no-blinking-cursor bug */
+}
+.aimDefault .inputableItemLabel .inputContainer .newInput
+{
+	width: 110px;
+	margin-bottom: 3px;
+	margin-right: 2px;
+	border: 1px solid #85817c;
+	font: normal 12px Arial !important;
+}
+
+.aimDefault .inputableItemLabel .inputContainer img.hover
+{
+	background-position: -1212px 0;
+}
+
+.aimDefault .inputableItemLabel .inputContainer .newButtonFF
+{
+	float: right;
+	margin-top: -1px;
+}

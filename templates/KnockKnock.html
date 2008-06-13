@@ -1,0 +1,13 @@
+<div>
+	<div class="knockKnock" dojoType="aim.LayoutContainer" dojoAttachPoint="layoutWidget">
+		<div dojoType="aim.widget.Pane" layoutAlign="top">
+			<div class="logo"></div>
+			<div dojoAttachPoint="promptNode" class="prompt"></div>
+		</div>
+		<div dojoType="aim.widget.AimToolbar" vizType="Bare" layoutAlign="top">
+			<div dojoType="aim.widget.AimButton" toolbarPosition="center" vizType="Blue" dojoAttachEvent="onClick: onClickAccept">${strings.KnockKnock_Label_Accept}</div>
+			<div dojoType="aim.widget.AimButton" toolbarPosition="center" vizType="Blue" dojoAttachEvent="onClick: onClickDecline">${strings.KnockKnock_Label_Decline}</div>
+			<div dojoType="aim.widget.AimButton" toolbarPosition="center" vizType="Blue" dojoAttachEvent="onClick: onClickBlock">${strings.KnockKnock_Label_Block}</div>
+		</div>
+	</div>
+</div>

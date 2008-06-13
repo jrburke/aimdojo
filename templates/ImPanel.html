@@ -1,0 +1,31 @@
+<div class="imPanel">
+	<div dojoAttachPoint="offlinePane" class="offline">
+			<img src="${spacer}" class="logo">
+			<div dojoAttachPoint="unsupportedBrowserMessage" style="display:none;">
+				<br><span>${strings.Message_Label_UnsupportedBrowser}</span>
+			</div>
+			<div dojoAttachPoint="signInDiv">
+				<div dojoAttachPoint="statusNode" dojoAttachEvent="onclick: onStatusNodeClick" class="status"><span class="statusSmall">${strings.SignOnStatus_Offline}</span></div>
+				<div dojoType="aim.widget.AimButton" dojoAttachPoint="signOnButton" vizType="Blue" dojoAttachEvent="onClick: onClickSignOn">${strings.SignIn}</div>
+				<div dojoAttachPoint="autoSignOnArea" class="autoSignOn">
+					<input type="checkbox" dojoAttachPoint="autoSignOnCheckbox" dojoAttachEvent="onclick: onChangeAutoSignOn">${strings.Settings_Label_AutoSignOn}
+				</div><br><br>
+				<div dojoAttachPoint="errorArea" class="errorBox" style="display: none;">
+					<div dojoAttachPoint="errorMsgNode" class="error"></div>
+					<div dojoAttachPoint="errorCodeNode" class="errorCode"></div>
+				</div>
+			</div>
+	</div>
+	<div dojoAttachPoint="onlinePane" class="online">
+		<div dojoType="aim.widget.ClearableTextbox" className="quickFindTextbox" dojoAttachPoint="quickFindTextbox" size="50" defaultValue="${strings.BuddyList_Label_Find}" dojoAttachEvent="onChange: quickFind, onFocus: onFocusQuickFind"></div>
+		<div dojoType="aim.ImUser"></div>
+		<div dojoAttachPoint="buttonsPane" class="buttonsPane">
+			<div class="addBuddyLink" dojoAttachEvent="onclick: addBuddy">
+				<img src="${spacer}" class="aimSmallAddButton">
+				<span class="aimLink">${strings.AddBuddy_Title}</span>
+			</div>
+			<div class="imButton" dojoAttachEvent="onclick: onClickImButton" title="${strings.IMshort}"></div>
+		</div>
+		<div dojoType="aim.BuddyList" dojoAttachPoint="buddyListWidget" hoverCardOrient="{${hoverCardOrient}}" hoverCardPointerSide="${hoverCardPointerSide}" hoverCardPointer="${hoverCardPointer}" hoverCardPadding="${hoverCardPadding}"></div>
+	</div>
+</div>
