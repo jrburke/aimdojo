@@ -9,21 +9,27 @@ want to use the files from the CDN directly.
 - Update the index.html to use that version number. Make sure to modify
   the HTML source since there may be version references in the links.
 - Check in the update to the docs.
+- Update buildscripts/aim.profile.js to use the right version number.
 - Update the keys in the test pages to be XXXX.
-- Do a tag of the code.
-- Fetch the tag.
-- Remove _tasks.txt
-- Create a ZIP file for source. Name it dojo-aim-version.zip.
+- Do a tag of the code:
+  svn copy https://aimdojo.googlecode.com/svn/trunk https://aimdojo.googlecode.com/svn/tags/aimdojo-X.X.X -m "Message"
+- Fetch the tag:
+  svn export svn export http://aimdojo.googlecode.com/svn/tags/aimdojo-X.X.X aimdojo-X.X.X-src
 
-- Download Dojo 1.1.0 source, place it as sibling to the aim module dir.
+- Copy auth.html and SoundBridge.swf into the tests directory.
+
+- Create source bundles:
+  zip -r aimdojo-X.X.X-src.zip aimdojo-X.X.X-src/
+  tar -zcvf aimdojo-X.X.X.tar.gz aimdojo-X.X.X/
+
+- Download Dojo 1.1.0 source, place it as sibling to the aimdojo dir.
 - cd dojo-release-1.1.0-src/util/buildscripts
 - Run this build command:
-  > ./build.sh profileFile=../../../aim/buildscripts/aim.profile.js version=1.1.0 releaseName=1.1.0 cssOptimize=comments.keepLines optimize=shrinksafe loader=xdomain xdDojoPath=http://o.aolcdn.com/dojo/1.1.0  action=release xdDojoScopeName=window[\(typeof\(djConfig\)\!\=\"undefined\"\&\&djConfig.scopeMap\&\&djConfig.scopeMap[0][1]\)\|\|\"dojo\"]
+  > ./build.sh profileFile=../../../aimdojo-X.X.X-src/buildscripts/aim.profile.js version=1.1.0 releaseName=1.1.0 cssOptimize=comments.keepLines optimize=shrinksafe loader=xdomain xdDojoPath=http://o.aolcdn.com/dojo/1.1.0  action=release xdDojoScopeName=window[\(typeof\(djConfig\)\!\=\"undefined\"\&\&djConfig.scopeMap\&\&djConfig.scopeMap[0][1]\)\|\|\"dojo\"]
 
 - cd to the dojo-release-1.1.0-src/release/1.1.0 directory.
 - Copy the dojo-aim-version.zip to the aim directory.
 
-- Copy auth.html and SoundBridge.swf into the tests directory.
 - Get a new key for the tests directory, based on version path.
 - Modify test pages to use this new key.
 - Copy aim.wim with comments to wim.js.commented.js and make change index.html to link to it.

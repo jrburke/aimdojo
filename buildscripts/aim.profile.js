@@ -35,6 +35,6 @@ dependencies = {
 	prefixes: [
 		[ "dijit", "../dijit" ],
 		[ "dojox", "../dojox" ],
-		[ "aim", "../../aim" ]
+		[ "aim", "../../aimdojo-1.0.0-src" ]
 	]
 }
